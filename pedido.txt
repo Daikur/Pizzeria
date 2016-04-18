@@ -1,0 +1,18 @@
+2016-04-18T10:20:36.495
+masa: Integral	Precio Masa: 9.5
+Tipo: 4 Quesos	Precio Tipo: 5.0
+Tamaño: Familiar
+Ingredientes: [Jamón, Queso, Tomate]	Precio Ingredientes: 2.75
+Precio Final: 22.425
+2016-04-18T10:22:41.095
+masa: Integral	Precio Masa: 9.5
+Tipo: Básica	Precio Tipo: 3.0
+Tamaño: Familiar
+Ingredientes: [Jamón, Queso, Tomate]	Precio Ingredientes: 2.75
+Precio Final: 19.825
+2016-04-18T10:31:54.812
+masa: Normal	Precio Masa: 0.0
+Tipo: Básica	Precio Tipo: 0.0
+Tamaño: Pequeña
+Ingredientes: []	Precio Ingredientes: 0.0
+Precio Final: 12.0

@@ -1,6 +1,11 @@
 package pizzeria;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 public class Pizzeria3 extends javax.swing.JFrame {
 
@@ -42,6 +47,7 @@ public class Pizzeria3 extends javax.swing.JFrame {
         panelResultado = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         areaPedido = new javax.swing.JTextArea();
+        botonTicket = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -204,20 +210,33 @@ public class Pizzeria3 extends javax.swing.JFrame {
         areaPedido.setRows(5);
         jScrollPane2.setViewportView(areaPedido);
 
+        botonTicket.setText("Generar Ticket");
+        botonTicket.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonTicketActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelResultadoLayout = new javax.swing.GroupLayout(panelResultado);
         panelResultado.setLayout(panelResultadoLayout);
         panelResultadoLayout.setHorizontalGroup(
             panelResultadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelResultadoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2)
+                .addGroup(panelResultadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelResultadoLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(botonTicket)))
                 .addContainerGap())
         );
         panelResultadoLayout.setVerticalGroup(
             panelResultadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelResultadoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addComponent(botonTicket)
                 .addContainerGap())
         );
 
@@ -323,23 +342,26 @@ public class Pizzeria3 extends javax.swing.JFrame {
         if (this.spinnerTamaño.getValue().toString().equalsIgnoreCase("familiar")) {
             p.setTamaño("Familiar");
         }
-
         this.areaPedido.setText(p.toString());
-
     }//GEN-LAST:event_spinnerTamañoStateChanged
 
     private void botonNormalItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_botonNormalItemStateChanged
         p.setMasa("Normal");
         this.areaPedido.setText(p.toString());
-        
-
     }//GEN-LAST:event_botonNormalItemStateChanged
 
     private void botonIntegralItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_botonIntegralItemStateChanged
         p.setMasa("Integral");
         this.areaPedido.setText(p.toString());
-        
     }//GEN-LAST:event_botonIntegralItemStateChanged
+
+    private void botonTicketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonTicketActionPerformed
+        if ( p.generarTicket() == false ){
+            JOptionPane.showMessageDialog(this, "Pedido Correcto", "Pedido", JOptionPane.INFORMATION_MESSAGE);           
+        } else {
+            JOptionPane.showMessageDialog(this, "Pedido Erróneo", "Pedido", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_botonTicketActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -383,6 +405,7 @@ public class Pizzeria3 extends javax.swing.JFrame {
     private javax.swing.JTextArea areaPedido;
     private javax.swing.JRadioButton botonIntegral;
     private javax.swing.JRadioButton botonNormal;
+    private javax.swing.JButton botonTicket;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;

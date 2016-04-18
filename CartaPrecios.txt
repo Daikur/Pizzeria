@@ -1,0 +1,13 @@
+Masa Normal: 9.0;
+Masa Integral: 9.5;
+Tipo Basica: 3.0;
+Tipo CuatroQuesos: 5.0;
+Tipo Barbacoa: 7.0;
+Tipo Mexicana: 8.5;
+Ingredientes Jamon: 0.5;
+Ingredientes Queso: 0.75;
+Ingredientes Tomate: 1.5;
+Ingredientes Cebolla: 2.5;
+Ingredientes Olivas: 1.0;
+Tamaño Mediana: 1.15;
+Tamaño Familiar: 1.3;

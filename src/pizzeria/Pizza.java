@@ -1,5 +1,11 @@
 package pizzeria;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.file.Paths;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class Pizza {
@@ -118,5 +124,20 @@ public class Pizza {
     @Override
     public String toString() {
         return "masa: " + masa + '\t' + "Precio Masa: " + precioMasa + '\n' + "Tipo: " + tipo + '\t' + "Precio Tipo: " + precioTipo + '\n' + "Tamaño: " + tamaño + '\n' + "Ingredientes: " + ingredientes + '\t' + "Precio Ingredientes: " + precioIngredientes + '\n' + "Precio Final: " + this.calcularPrecio();
+    }
+
+    public boolean generarTicket() {
+        boolean correcto;
+        try (BufferedWriter carta = new BufferedWriter(new FileWriter("pedido.txt", true))) {
+            LocalDateTime hoy = LocalDateTime.now();
+            carta.write(hoy.toString());
+            carta.newLine();
+            carta.write(toString());
+            carta.newLine();
+            correcto = true;
+        } catch (IOException ex) {
+            correcto = false;
+        }
+        return correcto;
     }
 }
