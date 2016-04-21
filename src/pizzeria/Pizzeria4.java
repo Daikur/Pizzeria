@@ -7,11 +7,11 @@ import java.nio.file.Paths;
 import java.util.List;
 import javax.swing.JOptionPane;
 
-public class Pizzeria3 extends javax.swing.JFrame {
+public class Pizzeria4 extends javax.swing.JFrame {
 
     Pizza p;
 
-    public Pizzeria3() {
+    public Pizzeria4() {
         initComponents();
         this.botonNormal.setActionCommand("Normal");
         this.botonIntegral.setActionCommand("Integral");
@@ -47,6 +47,7 @@ public class Pizzeria3 extends javax.swing.JFrame {
         panelResultado = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         areaPedido = new javax.swing.JTextArea();
+        botonTicket = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -209,13 +210,24 @@ public class Pizzeria3 extends javax.swing.JFrame {
         areaPedido.setRows(5);
         jScrollPane2.setViewportView(areaPedido);
 
+        botonTicket.setText("Generar Ticket");
+        botonTicket.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonTicketActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelResultadoLayout = new javax.swing.GroupLayout(panelResultado);
         panelResultado.setLayout(panelResultadoLayout);
         panelResultadoLayout.setHorizontalGroup(
             panelResultadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelResultadoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 693, Short.MAX_VALUE)
+                .addGroup(panelResultadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelResultadoLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(botonTicket)))
                 .addContainerGap())
         );
         panelResultadoLayout.setVerticalGroup(
@@ -223,7 +235,9 @@ public class Pizzeria3 extends javax.swing.JFrame {
             .addGroup(panelResultadoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addComponent(botonTicket)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -341,6 +355,14 @@ public class Pizzeria3 extends javax.swing.JFrame {
         this.areaPedido.setText(p.toString());
     }//GEN-LAST:event_botonIntegralItemStateChanged
 
+    private void botonTicketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonTicketActionPerformed
+        if ( p.generarTicket() == true ){
+            JOptionPane.showMessageDialog(this, "Pedido Correcto", "Pedido", JOptionPane.INFORMATION_MESSAGE);           
+        } else {
+            JOptionPane.showMessageDialog(this, "Pedido Erróneo", "Pedido", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_botonTicketActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -356,25 +378,27 @@ public class Pizzeria3 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Pizzeria3.class
+            java.util.logging.Logger.getLogger(Pizzeria4.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Pizzeria3.class
+            java.util.logging.Logger.getLogger(Pizzeria4.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Pizzeria3.class
+            java.util.logging.Logger.getLogger(Pizzeria4.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Pizzeria3.class
+            java.util.logging.Logger.getLogger(Pizzeria4.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Pizzeria3().setVisible(true);
+                new Pizzeria4().setVisible(true);
             }
         });
     }
@@ -383,6 +407,7 @@ public class Pizzeria3 extends javax.swing.JFrame {
     private javax.swing.JTextArea areaPedido;
     private javax.swing.JRadioButton botonIntegral;
     private javax.swing.JRadioButton botonNormal;
+    private javax.swing.JButton botonTicket;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
