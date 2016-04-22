@@ -44,6 +44,7 @@ public class Pizzeria4 extends javax.swing.JFrame {
         listaIngredientes = new javax.swing.JList();
         jLabel1 = new javax.swing.JLabel();
         spinnerTamaño = new javax.swing.JSpinner();
+        cargaPrecios = new javax.swing.JButton();
         panelResultado = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         areaPedido = new javax.swing.JTextArea();
@@ -169,21 +170,31 @@ public class Pizzeria4 extends javax.swing.JFrame {
             }
         });
 
+        cargaPrecios.setText("Cargar Precios");
+        cargaPrecios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cargaPreciosActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelDatosLayout = new javax.swing.GroupLayout(panelDatos);
         panelDatos.setLayout(panelDatosLayout);
         panelDatosLayout.setHorizontalGroup(
             panelDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelDatosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(panelMasa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(panelTipoPizza, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(panelIngredientesExtra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addGroup(panelDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(spinnerTamaño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelDatosLayout.createSequentialGroup()
+                        .addComponent(panelMasa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(panelTipoPizza, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(panelIngredientesExtra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(panelDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(spinnerTamaño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(cargaPrecios))
                 .addContainerGap(50, Short.MAX_VALUE))
         );
         panelDatosLayout.setVerticalGroup(
@@ -201,7 +212,9 @@ public class Pizzeria4 extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)
                         .addComponent(spinnerTamaño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(94, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
+                .addComponent(cargaPrecios)
+                .addContainerGap())
         );
 
         panelResultado.setBorder(javax.swing.BorderFactory.createTitledBorder("Pedido"));
@@ -363,6 +376,12 @@ public class Pizzeria4 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_botonTicketActionPerformed
 
+    private void cargaPreciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargaPreciosActionPerformed
+        if ( p.cargarPrecios() == true){
+            p.cargarPrecios();
+        }
+    }//GEN-LAST:event_cargaPreciosActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -409,6 +428,7 @@ public class Pizzeria4 extends javax.swing.JFrame {
     private javax.swing.JRadioButton botonNormal;
     private javax.swing.JButton botonTicket;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JButton cargaPrecios;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;

@@ -1,6 +1,9 @@
 package pizzeria;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Paths;
@@ -12,22 +15,22 @@ public class Pizza {
 
     private String masa, tipo, tamaño;
     private List<String> ingredientes;
-    private final double masaNormal = 9.0;
-    private final double masaIntegral = 9.5;
-    private final double tipoBasica = 3.0;
-    private final double tipoCuatroQuesos = 5.0;
-    private final double tipoBarbacoa = 7.0;
-    private final double tipoMexicana = 8.5;
-    private final double ingJamon = 0.5;
-    private final double ingQueso = 0.75;
-    private final double ingTomate = 1.5;
-    private final double ingCebolla = 2.5;
-    private final double ingOlivas = 1.0;
-    private final double tamMediana = 1.15;
-    private final double tamFamiliar = 1.3;
-    private double precioMasa = 0.0;
-    private double precioTipo = 0.0;
-    private double precioIngredientes = 0.0;
+    private double masaNormal;
+    private double masaIntegral;
+    private double tipoBasica;
+    private double tipoCuatroQuesos;
+    private double tipoBarbacoa;
+    private double tipoMexicana;
+    private double ingJamon;
+    private double ingQueso;
+    private double ingTomate;
+    private double ingCebolla;
+    private double ingOlivas;
+    private double tamMediana;
+    private double tamFamiliar;
+    private double precioMasa;
+    private double precioTipo;
+    private double precioIngredientes;
     private double precioFinal = 0.0;
 
     public Pizza(String masa, String tipo, String tamaño, List ingredientes) {
@@ -123,7 +126,7 @@ public class Pizza {
 
     @Override
     public String toString() {
-        return "masa: " + masa + '\t' + "Precio Masa: " + precioMasa + '\n' + "Tipo: " + tipo + '\t' + "Precio Tipo: " + precioTipo + '\n' + "Tamaño: " + tamaño + '\n' + "Ingredientes: " + ingredientes + '\t' + "Precio Ingredientes: " + precioIngredientes + '\n' + "Precio Final: " + this.calcularPrecio();
+        return "masa: " + masa + '\t' + "Precio Masa: " + precioMasa + "\r\n" + "Tipo: " + tipo + '\t' + "Precio Tipo: " + precioTipo + "\r\n" + "Tamaño: " + tamaño + "\r\n" + "Ingredientes: " + ingredientes + '\t' + "Precio Ingredientes: " + precioIngredientes + "\r\n" + "Precio Final: " + this.calcularPrecio();
     }
 
     public boolean generarTicket() {
@@ -139,5 +142,61 @@ public class Pizza {
             correcto = false;
         }
         return correcto;
+    }
+
+    public boolean cargarPrecios() {
+        boolean resultado = true;
+        try (BufferedReader carta = new BufferedReader(new FileReader("CartaPrecios.txt"))) {
+            String nombre;
+
+            while (carta.readLine() != null) {
+                String[] datos = carta.readLine().split(":");
+                nombre = datos[0];
+                switch (nombre) {
+                    case "MNormal":
+                        this.masaNormal = Double.parseDouble(datos[1]);
+                        break;
+                    case "MIntegral":
+                        this.masaIntegral = Double.parseDouble(datos[1]);
+                        break;
+                    case "TBasica":
+                        this.tipoBasica = Double.parseDouble(datos[1]);
+                        break;
+                    case "TCuatroQuesos":
+                        this.tipoCuatroQuesos = Double.parseDouble(datos[1]);
+                        break;
+                    case "TBarbacoa":
+                        this.tipoBarbacoa = Double.parseDouble(datos[1]);
+                        break;
+                    case "TMexicana":
+                        this.tipoMexicana = Double.parseDouble(datos[1]);
+                        break;
+                    case "IJamon":
+                        this.ingJamon = Double.parseDouble(datos[1]);
+                        break;
+                    case "IQueso":
+                        this.ingQueso = Double.parseDouble(datos[1]);
+                        break;
+                    case "ITomate":
+                        this.ingTomate = Double.parseDouble(datos[1]);
+                        break;
+                    case "ICebolla":
+                        this.ingCebolla = Double.parseDouble(datos[1]);
+                        break;
+                    case "IOlivas":
+                        this.ingOlivas = Double.parseDouble(datos[1]);
+                        break;
+                    case "TMediana":
+                        this.tamMediana = Double.parseDouble(datos[1]);
+                        break;
+                    case "TFamiliar":
+                        this.tamFamiliar = Double.parseDouble(datos[1]);
+                        break;
+                }
+            }
+        } catch (IOException ex) {
+            resultado = false;
+        }
+        return resultado;
     }
 }
