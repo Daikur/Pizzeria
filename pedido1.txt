@@ -1,0 +1,24 @@
+2016-04-24T21:46:18.088
+masa: Integral	Precio Masa: 9.5
+Tipo: Barbacoa	Precio Tipo: 7.0
+Tamaño: Mediana
+Ingredientes: [Jamón, Tomate]	Precio Ingredientes: 2.0
+Precio Final: 21.275
+2016-04-24T21:46:22.703
+masa: Integral	Precio Masa: 9.5
+Tipo: Barbacoa	Precio Tipo: 7.0
+Tamaño: Mediana
+Ingredientes: [Jamón, Tomate]	Precio Ingredientes: 2.0
+Precio Final: 21.275
+2016-04-24T21:46:28.441
+masa: Integral	Precio Masa: 9.5
+Tipo: Barbacoa	Precio Tipo: 7.0
+Tamaño: Mediana
+Ingredientes: [Jamón, Tomate]	Precio Ingredientes: 2.0
+Precio Final: 21.275
+2016-04-24T21:46:35.567
+masa: Integral	Precio Masa: 9.5
+Tipo: Básica	Precio Tipo: 3.0
+Tamaño: Mediana
+Ingredientes: [Queso]	Precio Ingredientes: 0.75
+Precio Final: 15.237499999999999

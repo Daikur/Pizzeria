@@ -130,8 +130,13 @@ public class Pizza {
     }
 
     public boolean generarTicket() {
-        boolean correcto;
-        try (BufferedWriter carta = new BufferedWriter(new FileWriter("pedido.txt", true))) {
+        boolean correcto = false;
+        
+        
+    
+        int contador=0;
+        contador++;
+        try (BufferedWriter carta = new BufferedWriter(new FileWriter("pedido" + contador + ".txt", true))) {
             LocalDateTime hoy = LocalDateTime.now();
             carta.write(hoy.toString());
             carta.newLine();
@@ -147,10 +152,10 @@ public class Pizza {
     public boolean cargarPrecios() {
         boolean resultado = true;
         try (BufferedReader carta = new BufferedReader(new FileReader("CartaPrecios.txt"))) {
-            String nombre;
+            String nombre, linea;
 
-            while (carta.readLine() != null) {
-                String[] datos = carta.readLine().split(":");
+            while ((linea = carta.readLine()) != null) {
+                String[] datos = linea.split(":");
                 nombre = datos[0];
                 switch (nombre) {
                     case "MNormal":
