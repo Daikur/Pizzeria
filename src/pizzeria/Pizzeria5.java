@@ -1,6 +1,7 @@
 package pizzeria;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -10,7 +11,7 @@ import javax.swing.JOptionPane;
 
 public class Pizzeria5 extends javax.swing.JFrame {
 
-    Pizza p;
+    Pizza5 p;
 
     public Pizzeria5() {
         initComponents();
@@ -21,7 +22,7 @@ public class Pizzeria5 extends javax.swing.JFrame {
         String tipo = this.tipoPizza.getSelectedItem().toString();
         String tamaño = this.spinnerTamaño.getValue().toString();
         this.lista = this.listaIngredientes.getSelectedValuesList();
-        p = new Pizza(masa, tipo, tamaño, this.lista);
+        p = new Pizza5(masa, tipo, tamaño, this.lista);
     }
 
     /**
@@ -370,16 +371,19 @@ public class Pizzeria5 extends javax.swing.JFrame {
     }//GEN-LAST:event_botonIntegralItemStateChanged
 
     private void botonTicketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonTicketActionPerformed
-        if ( p.generarTicket() == true ){
-            JOptionPane.showMessageDialog(this, "Pedido Correcto", "Pedido", JOptionPane.INFORMATION_MESSAGE);           
+        if (p.generarTicket() == true) {
+            JOptionPane.showMessageDialog(this, "Pedido Correcto", "Pedido", JOptionPane.INFORMATION_MESSAGE);
         } else {
             JOptionPane.showMessageDialog(this, "Pedido Erróneo", "Pedido", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_botonTicketActionPerformed
 
     private void cargaPreciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargaPreciosActionPerformed
-       int valor = this.ventanaElegir.showOpenDialog(this.cargaPrecios);
-
+        int valor = this.ventanaElegir.showOpenDialog(this.cargaPrecios);
+        if (valor == JFileChooser.APPROVE_OPTION) {
+            File file = ventanaElegir.getSelectedFile();
+            p.cargarPrecios(file);
+        }
     }//GEN-LAST:event_cargaPreciosActionPerformed
 
     public static void main(String args[]) {

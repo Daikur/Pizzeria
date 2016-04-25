@@ -62,11 +62,6 @@ public class Pizzeria4 extends javax.swing.JFrame {
                 botonNormalItemStateChanged(evt);
             }
         });
-        botonNormal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonNormalActionPerformed(evt);
-            }
-        });
 
         buttonGroup1.add(botonIntegral);
         botonIntegral.setText("Integral");
@@ -278,15 +273,6 @@ public class Pizzeria4 extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void botonNormalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonNormalActionPerformed
-//        precioMasa = 9.00;
-//        this.labelMasa.setText(precioMasa.toString());
-//        precioTotal = precioMasa + precioTipo + precioIngrediente;
-//
-//        this.campoTotal.setText(precioTotal.toString());
-
-    }//GEN-LAST:event_botonNormalActionPerformed
 
     private void botonIntegralActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonIntegralActionPerformed
 //        precioMasa = 9.50;

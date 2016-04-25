@@ -2,6 +2,7 @@ package pizzeria;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -11,7 +12,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
-public class Pizza {
+public class Pizza5 {
 
     private String masa, tipo, tamaño;
     private List<String> ingredientes;
@@ -33,7 +34,7 @@ public class Pizza {
     private double precioIngredientes;
     private double precioFinal = 0.0;
 
-    public Pizza(String masa, String tipo, String tamaño, List ingredientes) {
+    public Pizza5(String masa, String tipo, String tamaño, List ingredientes) {
         this.masa = masa;
         this.tipo = tipo;
         this.tamaño = tamaño;
@@ -131,8 +132,8 @@ public class Pizza {
     }
 
     public boolean generarTicket() {
-        boolean correcto = false;   
-        int contador=0;
+        boolean correcto = false;
+        int contador = 0;
         contador++;
         try (BufferedWriter carta = new BufferedWriter(new FileWriter("pedido" + contador + ".txt", true))) {
             LocalDateTime hoy = LocalDateTime.now();
@@ -147,9 +148,9 @@ public class Pizza {
         return correcto;
     }
 
-    public boolean cargarPrecios() {
+    public boolean cargarPrecios(File archivo) {
         boolean resultado = true;
-        try (BufferedReader carta = new BufferedReader(new FileReader("CartaPrecios.txt"))) {
+        try (BufferedReader carta = new BufferedReader(new FileReader(archivo))) {
             String nombre, linea;
 
             while ((linea = carta.readLine()) != null) {
